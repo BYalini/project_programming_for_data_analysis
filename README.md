@@ -1,43 +1,98 @@
-# project_programming_for_data_analysis
 ## **Yalini Brhanavan - GMIT - H.Dip Data Analytics**
 
 <img src="https://image.ibb.co/gw4Gen/Index_GMIT.png" alt="Index GMIT" border="0" />
 
-* Project: Programming for Data Analysis
-* Sep 2020
+* Programming for Data Analytics: Project 2020
+* Dec 2020
 
-----------------------------------------------------------------------------------------------------------------------------------------
+---
 
-**Project Problem statement:**
+## How to run the file
+*  Python version 3.8 was downloaded via Anaconda Navigator 3 to Windows 10 OS (https://www.anaconda.com/).
 
-create a data set by simulating a real-world phenomenon of your choosing. 
-Rather than collect data related to the phenomenon, you should model and synthesise such data using Python.
-Specifically, in this project you should:
-• Choose a real-world phenomenon that can be measured and for which you could
-collect at least one-hundred data points across at least four different variables.
-• Investigate the types of variables involved, their likely distributions, and their
-relationships with each other.
-• Synthesise/simulate a data set as closely matching their properties as possible.
-• Detail your research and implement the simulation in a Jupyter notebook – the
-data set itself can simply be displayed in an output cell within the notebook.
+*  Open Anaconda naviator and launch Juyptor Lab
 
-introduction 
+* Open project folder, double click on the notebook FDAProject.ipynb. 
 
-For this problem I am anaysing a sample 2000 Irish men and women. I am going to Synthesise their height , weight, gender and ethinicity. The hight of a population can be predicted using normal distribution. Weight slightly deviate from the normal distribution and predicting this is a bigger problem and it's outside the scope of this class hence I am unsing a normal distribution. 
+* Select <span style="background-color:#EBF5FB">*Kernel -> Restart Kernel and Run All Cells* </span> from top menu
 
-I am assuming the male to female ratio to be 50%/50%.
+## Project Introduction
+* In this project,  I am simulating a sample 2000 Irish adult height, weight, gender and ethinicity. 
 
-Assumptions:
-Hight and weight disribution is normal disribution
-hight standard deviaiton
-weight standard deviaiton
+* The height of each gender is approximated by a normal distribution. 
 
-**How to run the file:**
-1.  Open Task 2020.ipynb in Jupyterlab or Jupyter notebook .
-2. click the Kernel button and select Restart & Run All. 
-3. when the pop window appear select Restart and Run All Cells. 
+* In reality, weights of men and women slightly deviate from the normal distribution. However, for simplicity I have assumed weight too can also represented by a normal distribtuion. 
 
-**REFERENCES:** 
+* I have assumed the sample consists of equal numbers of males and females
 
-[Q1]: 
+* The distrivutuion of ethnicity reflects the measurements of the last census survey. 
+
+
+## Simulating Variables
+
+### 1. Height
+According this [news article](https://www.thejournal.ie/height-irish-2899850-Jul2016/) the average height of an Irish man is 179cm and average heights of an Irish woman is 165cm.
+
+I assumed the standard deviation of mens' heights in 7cm and womens' hieght has a standard deviation of 5cm. 
+
+To simulate the height variable, first I generate a sample of 1000 men heights using the normal distribution function in Numpy. I set a seed value in the random number generator for reproducibility. <br/>
+<code> sample_heights_men = np.random.default_rng(seed=1).normal(loc=179, scale=7, size=1000) </code> <br/>
+<img src="menheights.PNG" alt="Men Heights" width="75%" height="75%" ><br/> 
+
+Next, I generated a sample of 1000 women heights with mean 165 and standard deviation of 5cm. <br/>
+<code> sample_heights_women = np.random.default_rng(seed=1).normal(loc=165, scale=5, size=1000) </code> <br/>
+<img src="womenheights.PNG" alt="Women Heights" width="75%" height="75%" ><br/> 
+
+The chart below shows the  kernel density estimate plot (KDE plot) both men height and women height on the same chart. <br/>
+<img src="kdeheight.PNG" alt="KDE Heights" width="75%" height="75%" ><br/> 
+
+Finally I use Numpy's hstack function to concatenate the 1-D arrays mens heights and women heights into a single height varaible of size 2000. <br/>
+<code> heights = np.hstack((sample_heights_men, sample_heights_women)) </code>
+
+### 2. Weight
+According this [article](https://www.worlddata.info/average-bodyheight.php) the average weight of an Irish man 89.2 kg and average heights of an Irish woman is 73.1 kg. 
+
+I assumed mens weight has a standard deviation of 10kg. Then I drew 1000 samples of men's weights from a normal distribution of mean 89.2kg standard deviation 10kg. <br/>
+<code> sample_weights_men = np.random.default_rng(seed=2).normal(loc=89.2, scale=10, size=1000) </code> <br/>
+<img src="menweights.PNG" alt="Men weights" width="75%" height="75%" ><br/>
+
+Then I made an assumption women weight has a standard deviation of 8kg and drew another sample of 1000 weights using Numpy normal function. <br/>
+<code> sample_weights_women = np.random.default_rng(seed=2).normal(loc=73.1, scale=8, size=1000) </code> <br/>
+<img src="womenweights.PNG" alt="Women weights" width="75%" height="75%" ><br/>
+
+The chart below shows the  kernel density estimate plot (KDE plot) both men height and women height on the same chart. <br/>
+<img src="kdeweight.PNG" alt="KDE weights" width="75%" height="75%" ><br/> 
+
+Finally I use Numpy's hstack function concatenate the 1-D arrays men weights and women weights into a single weight varaible of size 2000. <br/>
+<code> weights = np.hstack((sample_weights_men, sample_weights_women)) </code>
+
+### 3. Gender
+Becuase I drew 1000 samples of men and women for the variable height and weight. The gender variable simply has 1000 men and 100 women.  Here zeros denote men and 1 denotes women. <br/>
+
+<code> gender = np.hstack((np.zeros(1000), np.ones(1000))) </code> <br/>
+<img src="gender.PNG" alt="Gender count" width="75%" height="75%" ><br/> 
+
+### 4. Ethnicity
+According to the [2016 census data](https://www.cso.ie/en/releasesandpublications/ep/p-cp8iter/p8iter/p8e/) the ethnicity of Irish population is as follows : 
+* Irish 82.2%  
+* Other white 9.5%
+* Asian 2.1% 
+* other 1.5%, 
+* black 1.4%
+* Irish travelers 0.7%
+* Unspecified 2.6%
+
+In order to simulate the ethinicity variable first created a string array consisting of all the ethnicities in the population. <br/>
+<code> ethnic_group = np.array(['Irish','Irish travelers','Other White','Black','Asian','Unspecified','other']) </code><br/>
+
+Then I create another variable named *prob* the representated the percentage of each group in the population. <br/>
+
+<code> percentage = np.array([0.822, 0.007, 0.095, 0.014, 0.021, 0.026, 0.015]) </code> <br/>
+
+Finally, I used Numpy's choice function to draw a sample of 2000 with replacement. This function  a random sample from using the *ethnic_group* variable with probabilities associated with each entry in *percentage*. Therefore the resulting sample represents the population. <br/>
+<code> ethinicity = np.random.default_rng(seed=0).choice(ethnic_group, 2000, p=percentage) </code> <br/>
+<img src="ethnicity.PNG" alt="Gender count" width="75%" height="75%" ><br/> 
+
+## REFERENCES 
+
 
