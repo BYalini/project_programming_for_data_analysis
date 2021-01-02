@@ -91,7 +91,41 @@ Then I create another variable named *prob* the representated the percentage of 
 
 Finally, I used Numpy's choice function to draw a sample of 2000 with replacement. This function  a random sample from using the *ethnic_group* variable with probabilities associated with each entry in *percentage*. Therefore the resulting sample represents the population. <br/>
 <code> ethinicity = np.random.default_rng(seed=0).choice(ethnic_group, 2000, p=percentage) </code> <br/>
-<img src="ethnicity.png" alt="Gender count" width="75%" height="75%" ><br/> 
+<img src="ethnicity.png" alt="Ethnicity" width="75%" height="75%" ><br/> 
+
+### 5. Salaries
+Next I generated salaries for all the adults in the sample. According to [CSO the the median salary in 2018 was 36,095 Euros](https://www.cso.ie/en/releasesandpublications/ep/p-eaads/earningsanalysisusingadministrativedatasources2018/annualearnings/) <br/>
+
+Becuase salaries are tend to have a right skew and cannot be less than zero I used log normal distribution to simulate this variable. <br/>
+
+
+I assumed salaries are log-normally distributed with mean=10 and standard deviation=1. Here the mean and standard deviation are not the values for the distribution itself, but of the underlying normal distribution it is derived from. <br/>
+
+<code> salaries = np.random.default_rng(seed=5).lognormal(mean=10, sigma=1, size=2000) </code> <br/>
+<img src="salaries.png" alt="Salaries" width="75%" height="75%" ><br/> 
+
+As expected, the bulk of the salaries are between 0 and 100,000. The lowest salary was 825. The distribution has a long righ skew with the highest salary of 494,801. <br/>
+
+## Save the dataset as a csv file 
+In this section I will save the 5 individual variables for height, weight, gender, ethnicity and salaries as a single csv file so it can be used by other scripts later. <br/>
+
+To do this, first I created a python dictionary with all 5 variables. <br/>
+<code> my_data_dict = {'Height': heights, 
+                'Weight': weights, 
+                'Gender' : gender, 
+                'Ethnicity': ethinicity, 
+                'Salary' : salaries} </code>
+
+Then I used this dictionary to create a new pandas dataframe. <br/>
+<code> df_pda = pd.DataFrame(my_data_dict) </code>
+
+The table below shows the first 10 rows of the dataframe. <br/>
+<code> df_pda.head(10) </code> <br/>
+<img src="df_table.png" alt="Gender count" width="75%" height="75%" ><br/> 
+
+Finally I saved the pandas dataframe as csv file to the current working directory. <br/>
+<code> df_pda.to_csv('dataset_pda2020.csv', index=False) </code> <br/>
+<img src="csv_file.png" alt="csv" width="100%" height="100%" ><br/> 
 
 ## REFERENCES 
 
