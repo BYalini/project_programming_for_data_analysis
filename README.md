@@ -37,14 +37,14 @@ I assumed the standard deviation of mens' heights in 7cm and womens' hieght has 
 
 To simulate the height variable, first I generate a sample of 1000 men heights using the normal distribution function in Numpy. I set a seed value in the random number generator for reproducibility. <br/>
 <code> sample_heights_men = np.random.default_rng(seed=1).normal(loc=179, scale=7, size=1000) </code> <br/>
-<img src="menheights.PNG" alt="Men Heights" width="75%" height="75%" ><br/> 
+<img src="menheights.png" alt="Men Heights" width="75%" height="75%" ><br/> 
 
 Next, I generated a sample of 1000 women heights with mean 165 and standard deviation of 5cm. <br/>
 <code> sample_heights_women = np.random.default_rng(seed=1).normal(loc=165, scale=5, size=1000) </code> <br/>
-<img src="womenheights.PNG" alt="Women Heights" width="75%" height="75%" ><br/> 
+<img src="womenheights.png" alt="Women Heights" width="75%" height="75%" ><br/> 
 
 The chart below shows the  kernel density estimate plot (KDE plot) both men height and women height on the same chart. <br/>
-<img src="kdeheight.PNG" alt="KDE Heights" width="75%" height="75%" ><br/> 
+<img src="kdeheight.png" alt="KDE Heights" width="75%" height="75%" ><br/> 
 
 Finally I use Numpy's hstack function to concatenate the 1-D arrays mens heights and women heights into a single height varaible of size 2000. <br/>
 <code> heights = np.hstack((sample_heights_men, sample_heights_women)) </code>
@@ -54,14 +54,14 @@ According this [article](https://www.worlddata.info/average-bodyheight.php) the 
 
 I assumed mens weight has a standard deviation of 10kg. Then I drew 1000 samples of men's weights from a normal distribution of mean 89.2kg standard deviation 10kg. <br/>
 <code> sample_weights_men = np.random.default_rng(seed=2).normal(loc=89.2, scale=10, size=1000) </code> <br/>
-<img src="menweights.PNG" alt="Men weights" width="75%" height="75%" ><br/>
+<img src="menweights.png" alt="Men weights" width="75%" height="75%" ><br/>
 
 Then I made an assumption women weight has a standard deviation of 8kg and drew another sample of 1000 weights using Numpy normal function. <br/>
 <code> sample_weights_women = np.random.default_rng(seed=2).normal(loc=73.1, scale=8, size=1000) </code> <br/>
-<img src="womenweights.PNG" alt="Women weights" width="75%" height="75%" ><br/>
+<img src="womenweights.png" alt="Women weights" width="75%" height="75%" ><br/>
 
 The chart below shows the  kernel density estimate plot (KDE plot) both men height and women height on the same chart. <br/>
-<img src="kdeweight.PNG" alt="KDE weights" width="75%" height="75%" ><br/> 
+<img src="kdeweight.png" alt="KDE weights" width="75%" height="75%" ><br/> 
 
 Finally I use Numpy's hstack function concatenate the 1-D arrays men weights and women weights into a single weight varaible of size 2000. <br/>
 <code> weights = np.hstack((sample_weights_men, sample_weights_women)) </code>
@@ -70,7 +70,7 @@ Finally I use Numpy's hstack function concatenate the 1-D arrays men weights and
 Becuase I drew 1000 samples of men and women for the variable height and weight. The gender variable simply has 1000 men and 100 women.  Here zeros denote men and 1 denotes women. <br/>
 
 <code> gender = np.hstack((np.zeros(1000), np.ones(1000))) </code> <br/>
-<img src="gender.PNG" alt="Gender count" width="75%" height="75%" ><br/> 
+<img src="gender.png" alt="Gender count" width="75%" height="75%" ><br/> 
 
 ### 4. Ethnicity
 According to the [2016 census data](https://www.cso.ie/en/releasesandpublications/ep/p-cp8iter/p8iter/p8e/) the ethnicity of Irish population is as follows : 
@@ -91,7 +91,7 @@ Then I create another variable named *prob* the representated the percentage of 
 
 Finally, I used Numpy's choice function to draw a sample of 2000 with replacement. This function  a random sample from using the *ethnic_group* variable with probabilities associated with each entry in *percentage*. Therefore the resulting sample represents the population. <br/>
 <code> ethinicity = np.random.default_rng(seed=0).choice(ethnic_group, 2000, p=percentage) </code> <br/>
-<img src="ethnicity.PNG" alt="Gender count" width="75%" height="75%" ><br/> 
+<img src="ethnicity.png" alt="Gender count" width="75%" height="75%" ><br/> 
 
 ## REFERENCES 
 
