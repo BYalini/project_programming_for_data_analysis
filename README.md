@@ -68,7 +68,7 @@ Finally I use Numpy's hstack function concatenate the 1-D arrays men weights and
 <code> weights = np.hstack((sample_weights_men, sample_weights_women)) </code>
 
 ### 3. Gender
-Becuase I drew 1000 samples of men and women for the variable height and weight. The gender variable simply has 1000 men and 100 women.  Here zeros denote men and 1 denotes women. <br/>
+Becuase I drew 1000 samples of men and women for the variable height and weight. The gender variable simply has 1000 men and 1000 women.  Here zeros denote men and 1 denotes women. <br/>
 
 <code> gender = np.hstack((np.zeros(1000), np.ones(1000))) </code> <br/>
 <img src="gender.png" alt="Gender count" width="75%" height="75%" ><br/> 
