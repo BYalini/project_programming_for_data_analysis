@@ -17,16 +17,17 @@
 * Select <span style="background-color:#EBF5FB">*Kernel -> Restart Kernel and Run All Cells* </span> from top menu
 
 ## Project Introduction
-* In this project,  I am simulating a sample 2000 Irish adult height, weight, gender and ethinicity. 
+* In this project,  I am simulating a sample 2000 Irish adult height, weight, gender, ethinicity and salary. 
 
 * The height of each gender is approximated by a normal distribution. 
 
 * In reality, weights of men and women slightly deviate from the normal distribution. However, for simplicity I have assumed weight too can also represented by a normal distribtuion. 
 
-* I have assumed the sample consists of equal numbers of males and females
+* I have assumed the sample consists of equal numbers of males and females.
 
 * The distrivutuion of ethnicity reflects the measurements of the last census survey. 
 
+* Salaries are log-normally distributed with mean=10 and standard deviation=1.
 
 ## Simulating Variables
 
@@ -128,5 +129,31 @@ Finally I saved the pandas dataframe as csv file to the current working director
 <img src="csv_file.png" alt="csv" width="100%" height="100%" ><br/> 
 
 ## REFERENCES 
+
+* [W3 Schools: Random Numbers in NumPy](https://www.w3schools.com/python/numpy_random.asp)
+* [Wikipedia : Random Number Generation](https://en.wikipedia.org/wiki/Random_number_generation)
+* [Numpy : Random](https://numpy.org/doc/stable/reference/random/index.html)
+* [What is NumPy ?](https://numpy.org/doc/1.19/user/whatisnumpy.html)
+*  [Numpy : Random Generator](https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.random.html#numpy.random.Generator.random)
+* [Datacamp: Random Number Generator Using Numpy](https://www.datacamp.com/community/tutorials/numpy-random)
+* [Real Python: Python Histogram Plotting: NumPy, Matplotlib, Pandas & Seaborn](https://realpython.com/python-histograms/)
+* [Numpy documentation - numpy.random.Generator.normal](https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.normal.html#numpy.random.Generator.normal)
+* [Geek for Geeks -Python – Normal Distribution in Statistics](https://www.geeksforgeeks.org/python-normal-distribution-in-statistics/)
+* [Datacamp - Probability Distributions in Python](https://www.datacamp.com/community/tutorials/probability-distributions-python)
+* [Datacamp - Probability Distributions in Python](https://www.datacamp.com/community/tutorials/probability-distributions-python)
+* [A century of trends in adult human height ](https://elifesciences.org/articles/13410#SD1-data)
+* [Irish Health Survey 2019 - Main Results](https://www.cso.ie/en/releasesandpublications/ep/p-ihsmr/irishhealthsurvey2019-mainresults/healthdeterminants/)
+* [STATISTICS NORMAL DISTRIBUTION-HEIGHTS](https://static1.squarespace.com/static/585718168419c246cf6f204e/t/5ab7e2de70a6adbbb6bcf676/1522000606378/STATISTICS%2B-Dimensions%2B-%2B3-19-18%2B%281%29.pdf)
+* [Normal distribution](https://en.wikipedia.org/wiki/Normal_distribution)
+* [Census of Population 2016-Ireland](https://www.cso.ie/en/releasesandpublications/ep/p-cp3oy/cp3/assr/#:~:text=There%20were%20978%20males%20for,the%20state%20in%20April%202016)
+* [the journal](https://www.thejournal.ie/height-irish-2899850-Jul2016/)
+* [worlddata.info](https://www.worlddata.info/average-bodyheight.php)
+* [Hermanussen.C.M et al.,2001](https://www.nature.com/articles/0801715#:~:text=Body%20weight%20is%20not%20normally%20distributed%2C%20but%20skewed%20to%20the%20right.&text=There%20is%20a%20strong%20relation,be%20more%20resistant%20against%20obesity.)
+* [Numpy.hstack](https://numpy.org/doc/stable/reference/generated/numpy.hstack.html)
+* [Census of Population 2016](https://www.cso.ie/en/releasesandpublications/ep/p-cp8iter/p8iter/p8e/)
+* [Numpy Lognormal distribution](https://numpy.org/doc/stable/reference/random/generated/numpy.random.lognormal.html)
+* [CSO the the median salary in 2018 was 36,095 Euros](https://www.cso.ie/en/releasesandpublications/ep/p-eaads/earningsanalysisusingadministrativedatasources2018/annualearnings/)
+* [Pandas Docummentation to_csv](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_csv.html)
+* [TowardsdataScience - How to Export Pandas DataFrame to CSV](https://towardsdatascience.com/how-to-export-pandas-dataframe-to-csv-2038e43d9c03)
 
 
